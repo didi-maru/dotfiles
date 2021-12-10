@@ -1,0 +1,13 @@
+// Placer vos combinaisons de touches dans ce fichier pour remplacer les valeurs par défautauto[]
+[
+    {
+        "key": "ctrl+[Period]",
+        "command": "editor.action.commentLine",
+        "when": "editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "ctrl+shift+[Period]",
+        "command": "-editor.action.commentLine",
+        "when": "editorTextFocus && !editorReadonly"
+    }
+]

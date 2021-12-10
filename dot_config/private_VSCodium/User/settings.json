@@ -1,0 +1,8 @@
+{
+    "workbench.colorTheme": "Material Theme",
+    "window.menuBarVisibility": "toggle",
+    "editor.fontFamily": "'MesloLGMDZ Nerd Font Mono'",
+    "workbench.iconTheme": "eq-material-theme-icons",
+    "terminal.integrated.defaultProfile.linux": "fish",
+    "security.workspace.trust.untrustedFiles": "open"
+}

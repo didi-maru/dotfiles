@@ -1,0 +1,7 @@
+{
+  "vscode_path": "/usr/bin/codium",
+  "accepted_mime_types":[
+    "text/*",
+    "application/json"
+  ]
+}
