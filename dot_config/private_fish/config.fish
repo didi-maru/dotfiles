@@ -19,6 +19,7 @@ if status is-interactive
     abbr --add --global cmap 'chezmoi apply'
     abbr --add --global cmu 'chezmoi update'
     abbr --add --global cmd 'chezmoi diff'
+    abbr --add --global cmp 'chezmoi cd && git add . && git commit -m (date) && git push && exit 0'
 
     # Environment Variables #
     set --global --export EDITOR micro

@@ -1,10 +1,10 @@
 function import_tide_config \
-    --description 'Import tide theme configuration from a file (~/tide_theme_config.fish by default)'\
+    --description 'Import tide theme configuration from a file ($__fish_config_dir/tide_theme_config.fish by default)'\
     --argument file
 
     # if no file is given set FILE to default
     if not test -n "$file"
-        set file "$HOME/tide_theme_config.fish"
+        set file "$__fish_config_dir/tide_theme_config.fish"
     end
 
     if not test -f "$file"

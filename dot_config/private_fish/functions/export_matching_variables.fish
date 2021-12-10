@@ -2,7 +2,7 @@ function export_matching_variables \
     --description 'Export all varibles matching an expression to a file.' \
     --argument expr file
 
-    if not test -f "$file"
+    if test -f "$file"
         return 1    
     end
 
