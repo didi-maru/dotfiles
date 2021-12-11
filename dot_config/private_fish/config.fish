@@ -6,6 +6,7 @@ if status is-interactive
 
     # Abbreviations #
     abbr --add --global m "micro"
+    abbr --add --global cux "chmod u+x"
         
     abbr --add --global ca "code --a"
     abbr --add --global ch "code ."
