@@ -4,7 +4,7 @@ if status is-interactive
     # extra paths #
     fish_add_path ~/.local/bin
 
-    # Abbreviations #
+    # Abbreviations #    
     abbr --add --global ca "code --a"
     abbr --add --global ch "code ."
 
@@ -30,7 +30,8 @@ if status is-interactive
     abbr --add --global gps "git push"
     abbr --add --global gst "git status"
 
-    __abbr_tips_init
+    abbr --add --global sgu "sudo grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg"
+    
 
     # Environment Variables #
     set --global --export EDITOR micro
