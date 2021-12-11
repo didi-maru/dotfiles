@@ -4,7 +4,9 @@ if status is-interactive
     # extra paths #
     fish_add_path ~/.local/bin
 
-    # Abbreviations #    
+    # Abbreviations #
+    abbr --add --global m "micro"
+        
     abbr --add --global ca "code --a"
     abbr --add --global ch "code ."
 
