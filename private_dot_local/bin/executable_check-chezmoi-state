@@ -11,6 +11,7 @@ while [ $ATTEMPS -le $MAX_ATTEMPS  ]; do
 			break
 		fi
 	fi
+	ATTEMPS=$((ATTEMPS+1))
 	sleep $WAIT_TIME
 done
 
