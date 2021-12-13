@@ -2,6 +2,6 @@
 
 Type=Application
 Name=check-chezmoi-state
-Comment=Throw a notification if `chezmoi verify` throw an error
+Comment=Throw a notification if `chezmoi verify` return an error
 Exec={{ .chezmoi.homeDir }}/.local/bin/check-chezmoi-state
 Terminal=false
