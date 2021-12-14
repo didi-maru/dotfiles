@@ -6,5 +6,6 @@
     "terminal.integrated.defaultProfile.linux": "fish",
     "security.workspace.trust.untrustedFiles": "open",
     "editor.fontSize": 15,
-    "explorer.confirmDragAndDrop": false
+    "explorer.confirmDragAndDrop": false,
+    "redhat.telemetry.enabled": false
 }
