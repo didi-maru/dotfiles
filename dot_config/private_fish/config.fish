@@ -20,11 +20,12 @@ if status is-interactive
 
     abbr --add --global cm chezmoi
     abbr --add --global cma 'chezmoi add'
-    abbr --add --global cmra 'chezmoi re-add'
     abbr --add --global cmap 'chezmoi apply'
-    abbr --add --global cmu 'chezmoi update'
     abbr --add --global cmd 'chezmoi diff'
     abbr --add --global cmp chezmoi-push
+    abbr --add --global cmra 'chezmoi re-add'
+    abbr --add --global cmu 'chezmoi update'
+    abbr --add --global cmv 'chezmoi verify'
 
     abbr --add --global ga "git add"
     abbr --add --global gd "git diff"

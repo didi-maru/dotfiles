@@ -5,5 +5,6 @@
     "workbench.iconTheme": "eq-material-theme-icons",
     "terminal.integrated.defaultProfile.linux": "fish",
     "security.workspace.trust.untrustedFiles": "open",
-    "editor.fontSize": 15
+    "editor.fontSize": 15,
+    "explorer.confirmDragAndDrop": false
 }
