@@ -38,7 +38,8 @@ if status is-interactive
     
 
     # Environment Variables #
-    set --global --export EDITOR micro
+    set --global --export EDITOR /usr/bin/micro
+    set --global --export VISUAL /usr/bin/gedit
     set --global --export BROWSER firefox
 
 end
