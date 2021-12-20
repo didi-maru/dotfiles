@@ -1,0 +1,28 @@
+[Desktop Entry]
+Version=1.0
+Name=Youtube
+GenericName=Youtube
+GenericName[fr]=Youtube
+Comment=Watch videos on Youtube
+Comment[fr]=Regarder des vidéos sur Youtube
+Exec=firefox https://www.youtube.com/
+Icon=youtube
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Network;AudioVideo;
+Keywords=web;internet;Audio;Video;
+Actions=new-window;new-private-window;
+
+[Desktop Action new-window]
+Name=Open a New Window
+Name[en_GB]=New Window
+Name[en_US]=New Window
+Name[fr]=Nouvelle fenêtre
+Exec=firefox --new-window https://www.youtube.com/
+[Desktop Action new-private-window]
+Name=Open a New Private Window
+Name[en_GB]=New Private Window
+Name[en_US]=New Private Window
+Name[fr]=Nouvelle fenêtre de navigation privée
+Exec=firefox --private-window https://www.youtube.com/

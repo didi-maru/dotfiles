@@ -1,0 +1,20 @@
+[Desktop Entry]
+Version=1.0
+Name=Messenger
+GenericName=Messenger
+GenericName[fr]=Messenger
+Exec=firefox https://www.messenger.com/
+Icon=facebook-messenger
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=Network;InstantMessaging;
+Keywords=facebook;internet;message;
+Actions=new-window;
+
+[Desktop Action new-window]
+Name=Open a New Window
+Name[en_GB]=New Window
+Name[en_US]=New Window
+Name[fr]=Nouvelle fenêtre
+Exec=firefox --new-window https://www.messenger.com/
