@@ -1,4 +1,4 @@
-alias ls 'exa --icons'
+alias l 'exa'
 alias ll 'exa_git'
 alias la 'exa $EXA_STANDARD_OPTIONS $EXA_LA_OPTIONS'
 alias ld 'exa $EXA_STANDARD_OPTIONS $EXA_LD_OPTIONS'
@@ -27,7 +27,7 @@ function __fish_exa_uninstall --on-event fish-exa_uninstall
     set --erase EXA_LG_OPTIONS
     set --erase EXA_LE_OPTIONS
     set --erase EXA_LT_OPTIONS
-    functions --erase ls
+    functions --erase l
     functions --erase ll
     functions --erase exa_git
     functions --erase la

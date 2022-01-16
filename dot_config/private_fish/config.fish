@@ -41,5 +41,6 @@ if status is-interactive
     set --global --export EDITOR /usr/bin/micro
     set --global --export VISUAL /usr/bin/gedit
     set --global --export BROWSER firefox
+    
 
 end
