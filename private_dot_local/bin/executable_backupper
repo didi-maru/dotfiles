@@ -1,0 +1,162 @@
+#!/bin/bash
+#
+# Backup utility for rsync
+
+conf_dir="${HOME}/.backupper"
+time_file="${conf_dir}/backups_times.log"
+log_file="${conf_dir}/rsync_out.log"
+include_file="${conf_dir}/include.conf"
+exclude_file="${conf_dir}/exclude.conf"
+destination_file="${conf_dir}/destination.conf"
+
+if ! [ -d $conf_dir ]; then
+	echo "Configuration directory $conf_dir not found, creating it."
+	mkdir -p $conf_dir
+fi
+
+for filename in $time_file $log_file $include_file $exclude_file $destination_file; do
+	if ! [ -f $filename ]; then
+		echo "Creating $filename."
+		touch $filename 
+	fi
+done
+
+
+display_help() {
+	echo "Usage:"
+	echo "  backupper backup DESTINATION        backup dirs in $include_file, excluding dirs in $exclude_file to DESTINATION "
+	echo "  backupper include DIR [DIR]         add directories to $include_file"
+	echo "  backupper exclude DIR [DIR]         add directories to $exclude_file"
+	echo "  backupper verify [DAY_THRESHOLD]    return an error if the last succefull backup is older than DAY_THRESHOLD days."
+	echo "  backupper log [N=10]                display N last backups date and exit code "
+	echo "  backupper config 				    show current content od $include_file and $exclude_file"
+	echo "  backupper help                      display this help page"
+}
+
+
+do_backup() {
+	[ $1 ] && dest=$1 || dest=$( cat $destination_file )
+	[ $dest ] || return 1
+
+	if [ -s $include_file ]; then
+		include_arg=$( cat $include_file | tr '\n' ' ' )
+		include_arg=${include_arg::-1}
+	else 
+		include_arg=""
+	fi
+
+	mkdir -p $dest
+	run="rsync -aAXRv --delete --exclude-from=${exclude_file} $include_arg $dest"
+	echo "Running '$run'"
+
+	 printf "[$(date --utc)]\n$run\n" | tee $log_file > /dev/null
+ 
+	 $run 2>&1 | tee -a $log_file
+	 status="${PIPESTATUS[0]}"
+ 
+	 printf "$(date -d 'now' +%s --utc),$status\n" | tee -a $time_file > /dev/null
+ 
+	 if [ $status -eq 0 ]; then
+		 echo "Done."
+	 else
+		 echo "Backup failed. Logs written to $log_file"
+   	 fi
+}
+
+
+verify() {
+	if ! [ -s $time_file ]; then
+		echo "No backup has been performed on this system."
+		return 1
+	fi
+	
+	for line in $(tac $time_file); do
+		status=$(echo $line | cut -d, -f2)
+		
+		if [ $status -ne 0 ]; then
+			continue
+		fi
+
+		date=$(echo $line | cut -d, -f1)	
+		datestr=$(date --date="@${date}")
+
+		echo "Last succefull backup was performed $datestr."
+		
+		now=$(date -d 'now' +%s --utc)
+		deltatime=$(( (now - date) / (60*60*24) ))
+		
+		if [ $deltatime -ge $1 ]; then
+			echo "It is older than $1 days."
+			return 1
+		else
+			return 0
+		fi
+	done
+
+	echo "No succefull backup found."
+	return 1
+}
+
+display_config() {
+	echo "Included directories:"
+	for line in $(cat $include_file); do
+		echo "  $line"
+	done
+	
+	echo
+	
+	echo "Excluded directories:"
+	for line in $(cat $exclude_file); do
+		echo "  $line"
+	done
+}
+
+display_log() {
+	[ $1 ] && N=$1 || N=10
+
+	for line in $(tail -n${N} $time_file | tac); do
+		date=$(echo $line | cut -d, -f1)	
+		datestr=$(date --date="@${date}")
+		
+		status=$(echo $line | cut -d, -f2)
+
+		echo "Backup at $datestr, exit code: $status" 
+	done
+}
+
+
+command=$1
+case $command in
+	'backup')
+		do_backup $2
+		;;
+	'include')
+		echo "Adding directories to $include_file"
+		printf "%s\n" "${@}" | tee -a $include_file
+		;;
+	'exclude')
+		echo "Adding directories to $exclude_file"
+		printf "%s\n" "${@}" | tee -a $exclude_file
+		;;
+	'verify')
+		verify $2
+		;;
+	'config')
+		display_config
+		;;
+	'log')
+		display_log $2
+		;;
+	'help')
+		display_help
+		;;
+	*)
+		if [ $1 ]; then 
+			echo "No such command: $1. Please use 'backupper help'"
+		else
+			display_help
+		fi
+		;;
+esac
+
+
