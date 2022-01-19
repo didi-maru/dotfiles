@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=verify-last-backup
+Comment=Throw a notification if `backupper verify X` return an error
+Exec=/home/didi/.local/bin/verify-last-backup
+Terminal=false

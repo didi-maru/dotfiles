@@ -1,0 +1,29 @@
+#!/bin/bash
+
+WAIT_TIME=5
+MAX_ATTEMPS=10
+
+ATTEMPS=0
+while [ $ATTEMPS -le $MAX_ATTEMPS  ]; do
+	CURRENT_IP=$(ip r | grep default | cut -d ' ' -f 3)
+	if [ $CURRENT_IP ]; then
+		if ping -q -w 1 -c 1 ${CURRENT_IP} > /dev/null; then
+			break
+		fi
+	fi
+	ATTEMPS=$((ATTEMPS+1))
+	sleep $WAIT_TIME
+done
+
+cd ~/.local/share/chezmoi
+git pull > /dev/null
+if [ $? -ne 0 ]; then
+	exit 1
+fi
+
+chezmoi verify > /dev/null
+if [ $? -ne 0 ]; then
+	notify-send -t 5000 "chezmoi" "État de destination différent de l'état cible"
+fi
+
+exit 0

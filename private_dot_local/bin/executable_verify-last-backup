@@ -1,0 +1,10 @@
+#!/bin/bash
+
+MAX_DAYS=15
+
+backupper verify "$MAX_DAYS" > /dev/null
+if [ $? -ne 0 ]; then
+	notify-send -t 5000 "backupper" "Dernière sauvegarde effectuée il y plus de $MAX_DAYS jours"
+fi
+
+exit 0
