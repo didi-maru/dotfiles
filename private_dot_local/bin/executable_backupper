@@ -84,6 +84,8 @@ verify() {
 		
 		now=$(date -d 'now' +%s --utc)
 		deltatime=$(( (now - date) / (60*60*24) ))
+
+		[ "$1" ] || return 0
 		
 		if [ $deltatime -ge $1 ]; then
 			echo "It is older than $1 days."
