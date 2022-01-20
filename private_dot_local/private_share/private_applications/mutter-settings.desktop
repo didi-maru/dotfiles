@@ -1,0 +1,16 @@
+[Desktop Entry]
+Name[fr]=Paramètres Mutter
+Name=Mutter Settings
+
+Comment[fr]=Ajuster les paramètres avancés de GNOME 3
+Comment=Tweak advanced GNOME 3 settings
+
+Icon=org.gnome.tweaks
+Exec=gjs /home/didi/.local/share/mutter-rounded-setting/dist/mutter_settings.js
+Terminal=false
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Utility;
+
+Keywords[fr]=paramètres;avancés;préférences;;thème;
+Keywords=Settings;Advanced;Preferences;Theme;
