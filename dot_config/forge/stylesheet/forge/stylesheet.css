@@ -29,7 +29,13 @@
 }
 
 .window-clone-border,
-.window-tiled-border,
+.window-tiled-border {
+  border-width: 3px;
+  border-color: rgb(221,182,242);
+  border-style: solid;
+  border-radius: 18px;
+}
+
 .workspace-thumbnail-indicator {
   border-width: 3px;
   border-color: rgb(221,182,242);
