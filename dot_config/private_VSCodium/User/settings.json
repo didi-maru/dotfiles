@@ -8,5 +8,11 @@
     "editor.fontSize": 15,
     "explorer.confirmDragAndDrop": false,
     "redhat.telemetry.enabled": false,
-    "workbench.editor.wrapTabs": true
+    "workbench.editor.wrapTabs": true,
+    "terminal.integrated.commandsToSkipShell": [
+        "language-julia.interrupt"
+    ],
+    "julia.symbolCacheDownload": true,
+    "julia.enableTelemetry": false,
+    "julia.enableCrashReporter": false
 }
