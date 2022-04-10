@@ -2,7 +2,7 @@
 #
 # Backup utility for rsync
 
-conf_dir="${HOME}/.backupper"
+conf_dir="${HOME}/.config/backupper"
 time_file="${conf_dir}/backups_times.log"
 log_file="${conf_dir}/rsync_out.log"
 include_file="${conf_dir}/include.conf"
