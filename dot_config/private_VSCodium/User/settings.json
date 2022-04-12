@@ -1,5 +1,5 @@
 {
-    "workbench.colorTheme": "Adwaita Dark & colorful status bar",
+    "workbench.colorTheme": "Adwaita Dark & default syntax highlighting & colorful status bar",
     "window.menuBarVisibility": "toggle",
     "editor.fontFamily": "'MesloLGMDZ Nerd Font Mono'",
     "workbench.iconTheme": "eq-material-theme-icons",
@@ -14,5 +14,7 @@
     ],
     "julia.symbolCacheDownload": true,
     "julia.enableTelemetry": false,
-    "julia.enableCrashReporter": false
+    "julia.enableCrashReporter": false,
+    "editor.suggest.insertMode": "replace",
+    "editor.suggest.showStatusBar": true
 }
