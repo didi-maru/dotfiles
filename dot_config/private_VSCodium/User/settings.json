@@ -1,20 +1,22 @@
 {
     "workbench.colorTheme": "Adwaita Dark & default syntax highlighting & colorful status bar",
     "window.menuBarVisibility": "toggle",
-    "editor.fontFamily": "'MesloLGMDZ Nerd Font Mono'",
     "workbench.iconTheme": "eq-material-theme-icons",
-    "terminal.integrated.defaultProfile.linux": "fish",
-    "security.workspace.trust.untrustedFiles": "open",
+    "editor.fontFamily": "'MesloLGMDZ Nerd Font Mono'",
     "editor.fontSize": 15,
+    "editor.suggest.insertMode": "replace",
+    "editor.suggest.showStatusBar": true,
+    "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
-    "redhat.telemetry.enabled": false,
     "workbench.editor.wrapTabs": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "terminal.integrated.defaultProfile.linux": "fish",
     "terminal.integrated.commandsToSkipShell": [
         "language-julia.interrupt"
     ],
+    "redhat.telemetry.enabled": false,
     "julia.symbolCacheDownload": true,
     "julia.enableTelemetry": false,
     "julia.enableCrashReporter": false,
-    "editor.suggest.insertMode": "replace",
-    "editor.suggest.showStatusBar": true
+    "autoDocstring.docstringFormat": "numpy",
 }
