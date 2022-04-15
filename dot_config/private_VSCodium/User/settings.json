@@ -19,4 +19,5 @@
     "julia.enableTelemetry": false,
     "julia.enableCrashReporter": false,
     "autoDocstring.docstringFormat": "numpy",
+    "python.terminal.activateEnvInCurrentTerminal": true,
 }
